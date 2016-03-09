@@ -1,0 +1,22 @@
+.propertieslist .product {
+width: 100%;
+background:#fff;
+padding:10px;
+border: 1px solid #BEC8D2;
+border-radius: 3px;
+margin: 10px 0px;
+box-sizing: border-box;
+}
+.propertieslist .product_renglon_detalle{
+color: #2C7E0C;
+padding: 4px 0px 4px 10px;
+margin: 0px 0px;
+border: 1px solid #B8E5BC;
+border-radius: 2px;
+background: #DFF6E1 none repeat scroll 0% 
+}
+.propertieslist .product_image img {
+padding:2px;
+border: 1px solid #ccc;
+}
+

@@ -1,0 +1,20 @@
+#map-canvas img{max-width:none!important}div.ProductTitle{margin-bottom:10px}.product_image{margin-bottom:20px}.details_left,.details_right{width:50%;float:left}.text_details ul.dataul{list-style:none;margin:0;padding:0}.text_details ul.dataul li{list-style:none;margin:0;padding:0 0 0 15px;line-height:15px;width:100%;background:url(../img/bullet_green.png) left center no-repeat;border-bottom:1px solid #CCC}.text_details ul.dataul li span{margin:0;padding:0}.text_details ul.dataul li span.fieldlabel{float:left;width:110px}.text_details ul.dataul li span.fieldvalue{min-width:100px;font-weight:700;background:url(../img/arrow_green.gif) left center no-repeat;padding-left:10px}
+.ProductTitle h1 {font-size: 26px;margin-top: 10px;color:#3366cc;}
+
+div.general_details {
+    background: #ffffff none repeat scroll 0 0;
+    border: 1px solid #e5e4df;
+    padding: 10px;
+    width: 100%;
+}
+
+
+div.titleExtras {
+    background: #f3f2ed none repeat scroll 0 0;
+    border: 1px solid #e5e4df;
+    color: #333333;
+    font-weight: bold;
+    margin-bottom: 10px !important;
+    padding: 5px;
+    text-align: center;
+}

@@ -1,0 +1,16 @@
+.properties-contact-form {
+}
+.properties-contact-form .contact-form {
+	height: 430px;
+	padding: 10px 25px 30px 25px;
+	-moz-border-radius: 0 0 4px 4px; -webkit-border-radius: 0 0 4px 4px; border-radius: 0 0 4px 4px;
+	text-align: left;
+	background: #F6EDD4 none repeat scroll 0% 0%;
+border: 1px solid #F9AA4C;
+}
+.properties-contact-form .form-contact form textarea {
+	height: 60px;
+}
+.properties-contact-form .form-contact form .input-error {
+	border-color: #19b9e7;
+}
