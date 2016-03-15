@@ -7,7 +7,7 @@
 	</layout>
 	<fields name="params">
 		<fieldset name="basic" label="COM_PROPERTIES_MENU_OPTIONS">
-			<field name="goToPropertyDetails" default="properties" type="list" label="COM_PROPERTIES_MENU_REDIRECTURL_LABEL" description="COM_PROPERTIES_MENU_REDIRECTURL_DESC">
+			<field name="goToPropertyDetails" default="property" type="list" label="COM_PROPERTIES_MENU_REDIRECTURL_LABEL" description="COM_PROPERTIES_MENU_REDIRECTURL_DESC">
 				
 				<option value="category">Category</option>				
 				<option value="property">Property</option>	
