@@ -294,32 +294,32 @@
 	
 	<fieldset name="urls" label="Urls" description="" >	
 	<!---->
-	<field name="useDataInUrl" type="radio" default="1" label="Use Data In Url" description="Use Data In Url">
+	<field name="useDataInUrl" type="radio" default="0" label="Use Data In Url" description="Use Data In Url">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
 	
-		<field name="urlCountry" type="radio" default="1" label="Use Country" description="Use Country">
+		<field name="urlCountry" type="radio" default="0" label="Use Country" description="Use Country">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
 		
-		<field name="urlState" type="radio" default="1" label="Use State" description="UseState">
+		<field name="urlState" type="radio" default="0" label="Use State" description="UseState">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>		
 		
-		<field name="urlLocality" type="radio" default="1" label="Use Locality" description="UseLocality">
+		<field name="urlLocality" type="radio" default="0" label="Use Locality" description="UseLocality">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
 		
-		<field name="urlCategory" type="radio" default="1" label="Use Category" description="Use Category">
+		<field name="urlCategory" type="radio" default="0" label="Use Category" description="Use Category">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
 		
-		<field name="urlType" type="radio" default="1" label="Use Type" description="Use Type">
+		<field name="urlType" type="radio" default="0" label="Use Type" description="Use Type">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
