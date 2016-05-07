@@ -7,7 +7,7 @@
 	<authorUrl>http://www.com-property.com</authorUrl>
 	<copyright>Copyright com-property.com</copyright>
 	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-	<version>6.20160309</version>
+	<version>6.20160507</version>
 	<description>Real Estate Manager Software for Joomla 3+ CMS</description>
 	<install>
 		<sql>
