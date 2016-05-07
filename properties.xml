@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
-	<name>com_properties</name>
+	<name>Real Estate Manager</name>
 	<creationDate>2016-03</creationDate>
 	<author>www.com-property.com</author>
 	<authorEmail>fabiouz@gmail.com</authorEmail>
