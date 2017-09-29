@@ -6,22 +6,16 @@
  * @email		fabiouz@gmail.com
  * @license		GNU General Public License version 2 or later; see LICENSE.txt
  */
-
 defined('_JEXEC') or die;
-
 JHtml::addIncludePath(JPATH_COMPONENT . '/helpers/html');
 JHtml::_('behavior.formvalidation');
 JHtml::_('formbehavior.chosen', 'select');
-
 // Create shortcut to parameters.
 $params = $this->state->get('params');
-
 $app = JFactory::getApplication();
 $input = $app->input;
-
 // This checks if the config options have ever been saved. If they haven't they will fall back to the original settings.
 $params = json_decode($params);
-
 ?>
 <script type="text/javascript">
 	Joomla.submitbutton = function(task)
@@ -31,37 +25,20 @@ $params = json_decode($params);
 			<?php //echo $this->form->getField('articletext')->save(); ?>
 			Joomla.submitform(task, document.getElementById('product-form'));
 		}
-	}
-	
-	
-	
+	}		
 	function jSelectCoord(lat,lng) {
 			document.getElementById('jform_lat').value = lat;
 			document.getElementById('jform_lng').value = lng;	
 		SqueezeBox.close();
-	}
-	
+	}	
 </script>
 
 
+<div class="form-horizontal">
+	<form action="<?php JRoute::_('index.php?option=com_properties&layout=edit&id='); ?>" method="post" name="adminForm" id="product-form" class="form-validate">
 
-
-
-
-
-<div class="form-horizontal">    
-
-<form action="<?php JRoute::_('index.php?option=com_properties&layout=edit&id='); ?>" method="post" name="adminForm" id="product-form" class="form-validate">
-
-
-    
-    <?php //echo JLayoutHelper::render('joomla.edit.title_alias', $this); ?>
-
-
-<?php echo JHtml::_('bootstrap.startTabSet', 'myPropTab', array('active' => 'data')); ?>
-
+	<?php echo JHtml::_('bootstrap.startTabSet', 'myPropTab', array('active' => 'data')); ?>
 		<?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'data', JText::_('COM_PROPERTIES_DATA', true)); ?>
-        
         
     <div class="row-fluid form-horizontal-desktop">
 		<div class="span6">  
@@ -200,9 +177,7 @@ $params = json_decode($params);
 					<?php echo $this->getForm()->getInput('id'); ?>
 				</div>
 			</div>
-            
-            
-            
+
              <div class="control-group">
 				<div class="control-label">
 					<?php echo $this->getForm()->getLabel('refresh_time'); ?>
@@ -210,8 +185,7 @@ $params = json_decode($params);
 				<div class="controls">
 					<?php echo $this->getForm()->getInput('refresh_time'); ?>
 				</div>
-			</div>
-                
+			</div>                
 					
 		</div>
 		<div class="span6">
@@ -276,8 +250,7 @@ $params = json_decode($params);
 				<div class="controls">
 					<?php echo $this->getForm()->getInput('covered_area'); ?>
 				</div>
-			</div>
-            
+			</div>            
             
             <div class="control-group">
 				<div class="control-label">
@@ -298,13 +271,9 @@ $params = json_decode($params);
 			</div>           
            
 		</div>
-	</div>
+	</div>    
     
-    
-    
-    <?php echo JHtml::_('bootstrap.endTab'); ?>
-    
-    
+    <?php echo JHtml::_('bootstrap.endTab'); ?>    
     
     <?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'details', JText::_('COM_PROPERTIES_DETAILS', true)); ?>    
     
@@ -359,23 +328,10 @@ $params = json_decode($params);
         </div>
     
     <?php echo JHtml::_('bootstrap.endTab'); ?>
-
     
     <?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'description', JText::_('COM_PROPERTIES_DESCRIPTION', true)); ?>    
     <?php echo $this->getForm()->getInput('text'); ?>
-    <?php echo JHtml::_('bootstrap.endTab'); ?>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <?php echo JHtml::_('bootstrap.endTab'); ?>    
     
     <?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'map', JText::_('COM_PROPERTIES_MAP', true)); ?>    
     
@@ -399,37 +355,22 @@ $params = json_decode($params);
                     				
 				<label id="jform_getcoord-lbl" for="jform_getcoord" class="hasTip" title="">														
                    <strong>                   
-                   <a class="modal-button" title="<?php echo JText::_( 'COM_PROPERTIES_FIELD_GETCOORD_LABEL' ); ?>" href="index.php?option=com_properties&view=properties&task=map.mapgetcoord&id=<?php echo $this->item->id;?>&tmpl=ajax" rel="{handler: 'iframe', size: {x: 750, y: 475}}"><?php echo JText::_( 'COM_PROPERTIES_FIELD_GETCOORD_LABEL' ); ?></a>
+                   <a class="modal-button modal" title="<?php echo JText::_( 'COM_PROPERTIES_FIELD_GETCOORD_LABEL' ); ?>" href="index.php?option=com_properties&view=properties&task=map.mapgetcoord&id=<?php echo $this->item->id;?>&tmpl=ajax" rel="{handler: 'iframe', size: {x: 750, y: 475}}"><?php echo JText::_( 'COM_PROPERTIES_FIELD_GETCOORD_LABEL' ); ?></a>
                     </strong>	
                     </label>                      
                     
-    <?php echo JHtml::_('bootstrap.endTab'); ?>
-    
-    
+    <?php echo JHtml::_('bootstrap.endTab'); ?>    
 
 	<input type="hidden" name="myOrden" id="myOrden" value="" />
 	<input type="hidden" name="task" value="" />
     <input type="hidden" name="return" value="<?php echo $input->getCmd('return'); ?>" />
 	<?php echo JHtml::_('form.token'); ?>
- 
     
-    
-    <?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'images', JText::_('COM_PROPERTIES_IMAGES', true)); ?>       
-    
-    
-    
-    
-    
+    <?php echo JHtml::_('bootstrap.addTab', 'myPropTab', 'images', JText::_('COM_PROPERTIES_IMAGES', true)); ?>
     
     <?php require_once(JPATH_COMPONENT.'/views/product/tmpl/edit_images.php');?>
 
-
 </form>   
-
-
-
-
-
 
 
 <form action="<?php JRoute::_('index.php?option=com_properties&layout=edit&id='); ?>" method="post" name="adminForm" enctype="multipart/form-data" >
@@ -452,13 +393,6 @@ $params = json_decode($params);
 <div class="clr"></div>
 </form>
 
-
-
-	
-    <?php echo JHtml::_('bootstrap.endTab'); ?>
-    
-    
-    
+    <?php echo JHtml::_('bootstrap.endTab'); ?>    
     <?php echo JHtml::_('bootstrap.endTabSet'); ?>
 </div>
-
