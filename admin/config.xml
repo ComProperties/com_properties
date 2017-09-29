@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
-	<fieldset name="General" label="General">
-		
-		<field name="loadBootstrapCss" type="radio" default="1" label="load Bootstrap Css" description="load Bootstrap Css">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
-		</field>	
+	<fieldset name="General" label="General">			
 		
 		<field name="UseCountry" type="radio" default="1" label="Use Country" description="Use Country">
 			<option value="0">JNO</option>
@@ -26,31 +21,15 @@
 		<field name="UseLocalityDefault" type="text" default="1" label="Use Locality Default" description="UseLocalityDefault">
 		</field>		
 		<field name="PropertiesShow" type="text" default="5" label="Properties to Show" description="Properties to Show">
-		</field>
-		<field name="useTranslations" type="radio" default="0" label="use Translations" description="use Translations">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
 		</field>		
-		<field name="AutoCoord" type="radio" default="1" label="AutoC oord" description="Auto Coord">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
-		</field>					
-		<field
-			name="SaveContactForm" type="radio" default="1" label="Save Contact Form" description="Save Contact Form">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
-		</field>		
-		<field name="SendContactForm" type="list" default="3" label="Send Contact Form" description="Send Contact Form">
-			<option value="1">Admin</option>			
-			<option value="2">Agent</option>
-			<option value="3">Admin Agent</option>			
-		</field>
 		<field name="spacer1" type="spacer" hr="true" />			
 		<field name="ActiveMap" type="radio" default="1" label="Active Map" description="Active Map">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>	
 		
+		<field name="MapApiKey" type="text" default="" label="Map ApiKey" description="Map ApiKey">
+		</field>
 		<field name="MapDistance" type="text" default="14" label="Map Distance" description="Map Distance">
 		</field>		
 		<field name="DefaultLat" type="text" default="-34.650261" label="Default Lat" description="Default Lat">
