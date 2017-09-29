@@ -19,7 +19,7 @@ public function mapgetcoord()
 	$params	= JComponentHelper::getParams('com_properties');
 	$UseCountryDefault=$params->get('UseCountryDefault',0);
 			
-$apikey    = $params->get( 'MapApiKey' );
+$apikey    = $params->get( 'MapApiKey','' );
 $distancia= $params->get( 'MapDistance',15 );
 $DefaultLat= $params->get( 'DefaultLat',0 );
 $DefaultLng= $params->get( 'DefaultLng',0 );
@@ -44,80 +44,92 @@ $lat=$Prod->lat!=0 ? $Prod->lat : $DefaultLat;
 $lng=$Prod->lng!=0 ? $Prod->lng : $DefaultLng;
 }
 
-
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
 <html xmlns="http://www.w3.org/1999/xhtml"> 
   <head> 
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/> 
-    <title>Google Maps JavaScript API Example</title> 
-    <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=<?php echo $apikey;?>"
-      type="text/javascript"></script> 
-   
+    <title>Google Maps JavaScript API Example</title>     
   </head> 
 <body style="width: 750px; height: 400px; padding:0px; margin:0px;"> 
 <div id="map" style="width: 750px; height: 400px;"></div>  
 <form action="" name="formgetcoord" method="post">
 <input type="text" id="getlat" name="getlat" value="<?php echo $lat;?>" />
 <input type="text" id="getlng" name="getlng" value="<?php echo $lng;?>" />
-
 <button onclick="window.parent.jSelectCoord(document.getElementById('getlat').value,document.getElementById('getlng').value);SqueezeBox.close();" value="<?php echo JText::_( 'Add Coord' );?>"><?php echo JText::_( 'Add Coord' );?></button>
-
-
-
 </form>  
 
 
-    <script type="text/javascript"> 
+<script>
+var map;
+var markers = [];
 
-   var map = new GMap2(document.getElementById("map")); 
-        map.setCenter(new GLatLng(<?php echo $lat;?>, <?php echo $lng;?>), <?php echo $distancia;?>); 
-	<!--map.setMapType(G_HYBRID_MAP); -->
- 
-	map.addControl(new GSmallMapControl()); 
-	/*map.addControl(new GScaleControl()); */
-	map.addControl(new GMapTypeControl()); 
-/*	map.addControl(new GOverviewMapControl());*/ 
- 
-	var marker = new GMarker(new GLatLng(<?php echo $lat;?>, <?php echo $lng;?>)); 
-	map.addOverlay(marker); 
-	
-GEvent.addListener(map, 'click', function(overlay, point) {
-			if (overlay) {
-				map.removeOverlay(overlay);
-			} else if (point) {
-				/*map.recenterOrPanToLatLng(point);*/
-				var marker = new GMarker(point);
-				map.addOverlay(marker);
-				var matchll = /\(([-.\d]*), ([-.\d]*)/.exec( point );
-				if ( matchll ) { 
-					var lat = parseFloat( matchll[1] );
-					var lon = parseFloat( matchll[2] );
-					lat = lat.toFixed(6);
-					lon = lon.toFixed(6);
-					var message = "lat=" + lat + "<br>lon=" + lon + " "; 
-					var messageRoboGEO = lat + ";" + lon + ""; 
-				} else { 
-					var message = "<b>Error extracting info from</b>:" + point + ""; 
-					var messagRoboGEO = message;
-				}
+function initMap() {
+	var myLatlng = {lat: <?php echo $lat;?>, lng: <?php echo $lng;?>};
+  	map = new google.maps.Map(document.getElementById('map'), {
+	center: myLatlng,
+	zoom: <?php echo $distancia;?>
+  });
 
-				marker.openInfoWindowHtml(message);
+  var marker = new google.maps.Marker({
+	position: myLatlng,
+	map: map,
+	title: 'Click to zoom'
+  });
 
-				document.getElementById("getlat").value = lat;
-				document.getElementById("getlng").value = lon;
+map.addListener('click', function(event) {
 
-			}
-		});
-		
-			/*
-document.getElementById("frmLat").value = setLat;
-		document.getElementById("frmLon").value = setLon;
-        */
-        
-        
-    </script> 
+	deleteMarkers();
+	addMarker(event.latLng);
+	addMarker(myLatlng);
+
+	var matchll = /\(([-.\d]*), ([-.\d]*)/.exec( event.latLng );
+	if ( matchll ) { 
+		var lat = parseFloat( matchll[1] );
+		var lon = parseFloat( matchll[2] );
+		lat = lat.toFixed(6);
+		lon = lon.toFixed(6);
+		var message = "lat=" + lat + "<br>lon=" + lon + " "; 
+		var messageRoboGEO = lat + ";" + lon + ""; 
+	} else { 
+		var message = "<b>Error extracting info from</b>:" + point + ""; 
+		var messagRoboGEO = message;
+	}	  
+		document.getElementById("getlat").value = lat;
+		document.getElementById("getlng").value = lon;	
+});
+}
+// Adds a marker to the map and push to the array.
+function addMarker(location) {
+	var marker = new google.maps.Marker({
+	  position: location,
+	  map: map
+	});
+	markers.push(marker);
+  }
+  // Sets the map on all markers in the array.
+  function setMapOnAll(map) {
+	for (var i = 0; i < markers.length; i++) {
+	  markers[i].setMap(map);
+	}
+  }
+  // Removes the markers from the map, but keeps them in the array.
+  function clearMarkers() {
+	setMapOnAll(null);
+  }
+  // Shows any markers currently in the array.
+  function showMarkers() {
+	setMapOnAll(map);
+  }
+  // Deletes all markers in the array by removing references to them.
+  function deleteMarkers() {
+	clearMarkers();
+	markers = [];
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $apikey;?>&callback=initMap"
+async defer></script>
 </body> 
 </html> 
 <?php }
