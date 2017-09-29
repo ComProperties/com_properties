@@ -1,28 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
-	<name>ComProperties</name>
-	<creationDate>2016-03</creationDate>
+	<identifier>com:properties</identifier>
+	<name>Com_Properties</name>
+	<creationDate>2017-09</creationDate>
 	<author>www.com-property.com</author>
 	<authorEmail>fabiouz@gmail.com</authorEmail>
 	<authorUrl>http://www.com-property.com</authorUrl>
 	<copyright>Copyright com-property.com</copyright>
 	<license>GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html</license>
-	<version>6.20160507</version>
+	<version>6.20170929</version>
 	<description>Real Estate Manager Software for Joomla 3+ CMS</description>
-	<install>
+		<install>
 		<sql>
-			<file charset="utf8" driver="mysql">install.sql</file>
+			<file charset="utf8" driver="mysql">sql/install.sql</file>
 		</sql>
 	</install>
-	<scriptfile>script.php</scriptfile>
-	<uninstall>
+		<uninstall>
 		<sql>
-			<file charset="utf8" driver="mysql">uninstall.sql</file>
+			<file charset="utf8" driver="mysql">sql/uninstall.sql</file>
 		</sql>
 	</uninstall>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql/</schemapath>
+		</schemas>
+	</update>
 	<updateservers>    
     	<server type="extension" priority="2" name="Properties Component Updates">http://www.com-property.com/update/extension.xml</server>
 	</updateservers>
+	<scriptfile>script.php</scriptfile>
 	<media destination="com_properties" folder="media">
 		<filename>index.html</filename>
 		<folder>css</folder>
@@ -41,8 +47,8 @@
 		<folder>views</folder>		
 	</files>
 	<languages folder="site">       
-		<language tag="en-GB">en-GB.com_properties.ini</language>
-		<language tag="es-ES">es-ES.com_properties.ini</language>		
+		<language tag="en-GB">language/en-GB/en-GB.com_properties.ini</language>
+		<language tag="es-ES">language/es-ES/es-ES.com_properties.ini</language>		
     </languages>
 	<administration>
 		<files folder="admin">
@@ -50,16 +56,14 @@
 			<folder>helpers</folder>
 			<folder>includes</folder>
 			<folder>models</folder>	
-			<folder>tables</folder>
-			<folder>views</folder>			
+			<folder>sql</folder>	
+			<folder>tables</folder>	
+			<folder>views</folder>		
 			<filename>properties.php</filename>
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>
 			<filename>controller.php</filename>			
 			<filename>index.html</filename>
-			<filename>install.sql</filename>
-			<filename>script.php</filename>	
-			<filename>uninstall.sql</filename>
 		</files>
 		<menu>COM_PROPERTIES_MENU</menu>
 		<submenu>
@@ -67,10 +71,10 @@
 			<menu view="products">COM_PROPERTIES_MENU_PROPERTIES</menu>
 		</submenu>
 		<languages folder="admin">
-			<language tag="en-GB">en-GB.com_properties.ini</language>
-			<language tag="en-GB">en-GB.com_properties.sys.ini</language>
-			<language tag="es-ES">es-ES.com_properties.ini</language>
-			<language tag="es-ES">es-ES.com_properties.sys.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_properties.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_properties.sys.ini</language>
+			<language tag="es-ES">language/es-ES/es-ES.com_properties.ini</language>
+			<language tag="es-ES">language/es-ES/es-ES.com_properties.sys.ini</language>
 		</languages>
 	</administration>
 </extension>
