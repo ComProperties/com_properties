@@ -241,3 +241,22 @@ CREATE TABLE IF NOT EXISTS `#__properties_type` (
   `checked_out_time` datetime NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+CREATE TABLE IF NOT EXISTS `#__properties_showresults` (
+  `id` int(11) NOT NULL auto_increment,
+  `date` datetime NOT NULL,
+  `url` varchar(1000) NOT NULL,
+  `hits` int(11) NOT NULL,
+  `cyid` int(6) NOT NULL,
+  `sid` int(6) NOT NULL,
+  `lid` int(6) NOT NULL,
+  `cid` int(6) NOT NULL,
+  `tid` int(6) NOT NULL,
+  `capacity` int(2) NOT NULL,
+  `bedrooms` tinyint(1) NOT NULL,
+  `bathrooms` tinyint(1) NOT NULL,
+  `garage` tinyint(1) NOT NULL,
+  `minprice` int(6) NOT NULL,
+  `maxprice` int(6) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
